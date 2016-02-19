@@ -7,8 +7,14 @@ class Container(models.Model):
     in_use = models.BooleanField(default=True, help_text="Is the container in use?")
     created = models.DateTimeField(auto_now_add=True)
 
+    def __unicode__(self):
+        return self.name
+
 
 class ContainerReading(models.Model):
     container = models.ForeignKey(Container)
     datetime = models.DateTimeField(auto_now_add=True)
     value = models.IntegerField()
+
+    def __unicode__(self):
+        return self.container.name + ' - ' + str(self.datetime)
