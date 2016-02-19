@@ -1,0 +1,1 @@
+web: gunicorn waste_master.wsgi --log-file -
