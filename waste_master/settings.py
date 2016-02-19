@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     # 3rd party
     'rest_framework',
     'apps.api',
+    'apps.frontend',
 )
 
 MIDDLEWARE_CLASSES = (
