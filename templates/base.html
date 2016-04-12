@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login | Environmental Waste Management System</title>
+
+    <!-- Styles -->
+    <link href="{{ STATIC_URL }}libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
+    <!-- Page specific styles -->
+    {% block style %}
+    {% endblock %}
+
+    <!-- Icon font: Font Awesome -->
+    <link href="{{ STATIC_URL }}libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="{{ STATIC_URL }}libs/jquery/dist/jquery.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ STATIC_URL }}libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+{% block script %}
+{% endblock %}
+
+</body>
+</html>

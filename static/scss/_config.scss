@@ -1,0 +1,44 @@
+// This is the app configuration document.
+// All variables defined here can be used in other documents by '@import "config";'
+// this is a comment that wil NOT show in the compiled CSS /* This is a coment that will */
+
+
+/////// HEX Colors ///////
+// -----------------------------------------------------------------------------
+
+$primary_color_light:   #8fb359; // light green
+$primary_color_dark:    #005A31; // dark green
+
+$white:         #ffffff;
+$black:         #000000;
+
+// 5 shades of gray
+$alpha_gray:    #f7f7f7; // light gray
+$bravo_gray:    #eeeeee; //
+$charlie_gray:  #dddddd; //
+$delta_gray:    #444444; //
+$echo_gray:     #333333; // dark gray
+
+
+/////// Site Colors ///////
+// -----------------------------------------------------------------------------
+$navbar-bg:     #445663;
+$jrc-red:       rgb(205, 32, 39);
+
+
+/////// Typography ///////
+// -----------------------------------------------------------------------------
+
+$primary_font_family: 'Open Sans', sans-serif;
+$heading_font_family: 'Montserrat', sans-serif;
+
+
+/////// Screen sizes ///////
+// -----------------------------------------------------------------------------
+
+$screen_lg_low: 1200px;
+$screen_md_high: 1199px;
+$screen_md_low: 992px;
+$screen_sm_high: 991px;
+$screen_sm_low: 768px;
+$screen_xs_high: 767px;
