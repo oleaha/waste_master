@@ -15,14 +15,14 @@ def login_view(request, *args, **kwargs):
         user = authenticate(username=username, password=password)
 
         if not user:
-            messages.add_message(request, messages.ERROR, "Ugyldig brukernavn eller passord")
+            messages.add_message(request, messages.ERROR, "Illegal username and or password")
             return render(request, "frontend/login.html", {'username': username})
 
         if user.is_active:
             login(request, user)
             return redirect("profile")
         else:
-            messages.add_message(request, messages.ERROR, "Brukeren er deaktivert")
+            messages.add_message(request, messages.ERROR, "Your user is deactivated")
             return render(request, "frontend/login.html", {'username': username})
     else:
         if request.user.is_authenticated():

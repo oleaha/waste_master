@@ -1,93 +1,37 @@
 .login-bg {
-  background: url(../img/login-bg-6.jpg) center/cover no-repeat;
   height: 100vh;
+  background-color: #30c8e8;
 }
 
-.login {
-  margin-top: 5em;
+.login-container {
+  margin-top: 10em;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 2px 10px 3px rgba(59, 74, 79, 0.15);
+  -moz-box-shadow: 0 2px 10px 3px rgba(59, 74, 79, 0.15);
+  box-shadow: 0 2px 10px 3px rgba(59, 74, 79, 0.15);
+}
+
+.login-container .login {
+  margin-top: 3em;
+  margin-bottom: 5em;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
 }
 
-.login .logo {
-  margin-bottom: 3em;
-  overflow: hidden;
+.login-container .login .logo {
+  margin-bottom: 1em;
 }
 
-.login .login-form {
-  overflow: hidden;
+.login-container .login .form-group input {
+  border-radius: 25px;
 }
 
-.login .login-form .username:before {
-  display: block;
-  width: 14px;
-  height: 14px;
-  content: "\f007";
-  font-family: 'FontAwesome';
-  background-position: -48px 0;
-  position: absolute;
-  padding-left: 20px;
-  padding-top: 17px;
-  opacity: 1.0;
-  z-index: 1000;
-  color: #ffffff;
+.login-container .login button {
+  background-color: #fe4332;
+  color: #f7f8fa;
+  border-radius: 25px;
 }
 
-.login .login-form .password:before {
-  display: block;
-  width: 14px;
-  height: 14px;
-  content: "\f023";
-  font-family: 'FontAwesome';
-  background-position: -48px 0;
-  position: absolute;
-  padding-left: 20px;
-  padding-top: 18px;
-  opacity: 1.0;
-  z-index: 1000;
-  color: #ffffff;
-}
-
-.login .login-form input {
-  height: 55px;
-  border-radius: 50px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border: none;
-  color: #ffffff;
-  padding-left: 40px;
-}
-
-.login .login-form input::-webkit-input-placeholder {
-  color: #ffffff !important;
-}
-
-.login .login-form input:-moz-placeholder {
-  /* Firefox 18- */
-  color: #ffffff !important;
-}
-
-.login .login-form input::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #ffffff !important;
-}
-
-.login .login-form input:-ms-input-placeholder {
-  color: #ffffff !important;
-}
-
-.login .login-form button {
-  height: 55px;
-  border-radius: 50px;
-  background-color: #EE2F2D;
-  border: none;
-  color: #ffffff;
-}
-
-.login .login-form i {
-  color: #ffffff;
-}
-
-.login .login-form .form-control-feedback {
-  right: auto;
-  margin-right: 10px;
+.login-container .login button:hover {
+  background-color: #f4402d;
 }

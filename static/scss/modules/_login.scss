@@ -2,95 +2,40 @@
 @import "config";
 
 .login-bg {
-  background: url(../img/login-bg-6.jpg) center/cover no-repeat;
   height: 100vh;
+  background-color: #30c8e8;
 }
 
-.login {
-  margin-top: 5em;
-  font-family: $heading_font_family;
-  font-weight: 200;
+.login-container {
+  margin-top: 10em;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 2px 10px 3px rgba(59, 74, 79, 0.15);
+  -moz-box-shadow: 0 2px 10px 3px rgba(59, 74, 79, 0.15);
+  box-shadow: 0 2px 10px 3px rgba(59, 74, 79, 0.15);
 
-  .logo {
-    margin-bottom: 3em;
-    overflow: hidden;
-  }
+  .login {
+    margin-top: 3em;
+    margin-bottom: 5em;
+    font-family: $heading_font_family;
+    font-weight: 200;
 
-  .login-form {
-
-    overflow: hidden;
-
-    .username:before {
-      display: block;
-      width: 14px;
-      height: 14px;
-      content: "\f007";
-      font-family: 'FontAwesome';
-      background-position: -48px 0;
-      position: absolute;
-      padding-left: 20px;
-      padding-top: 17px;
-      opacity: 1.0;
-      z-index: 1000;
-      color: #ffffff;
+    .logo {
+      margin-bottom: 1em;
     }
 
-    .password:before {
-      display: block;
-      width: 14px;
-      height: 14px;
-      content: "\f023";
-      font-family: 'FontAwesome';
-      background-position: -48px 0;
-      position: absolute;
-      padding-left: 20px;
-      padding-top: 18px;
-      opacity: 1.0;
-      z-index: 1000;
-      color: #ffffff;
-    }
-
-    input {
-      height: 55px;
-      border-radius: 50px;
-      background-color: rgba(0, 0, 0, 0.8);
-      border: none;
-      color: #ffffff;
-      padding-left: 40px;
-
-      &::-webkit-input-placeholder {
-        color: #ffffff !important;
-      }
-
-      &:-moz-placeholder { /* Firefox 18- */
-        color: #ffffff !important;
-      }
-
-      &::-moz-placeholder {  /* Firefox 19+ */
-        color: #ffffff !important;
-      }
-
-      &:-ms-input-placeholder {
-        color: #ffffff !important;
-      }
+    .form-group input{
+      border-radius: 25px;
     }
 
     button {
-      height: 55px;
-      border-radius: 50px;
-      background-color: #EE2F2D;
-      border: none;
-      color: #ffffff;
-    }
+      background-color: #fe4332;
+      color: #f7f8fa;
+      border-radius: 25px;
 
-    i {
-      color: #ffffff;
-    }
-
-    .form-control-feedback {
-      right: auto;
-      margin-right: 10px;
+      &:hover {
+        background-color: #f4402d;
+      }
     }
   }
-
 }
+
