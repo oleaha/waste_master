@@ -3,3 +3,9 @@ env/
 db.sqlite3
 *.pyc
 staticfiles/
+
+static/libs/
+media/
+
+bower_components/
+node_modules/

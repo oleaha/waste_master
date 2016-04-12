@@ -1,0 +1,23 @@
+{
+  "name": "Waste Master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleaha/waste_master"
+  },
+  "author": "Ole Andreas Hansen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oleaha/waste_master/issues"
+  },
+  "homepage": "https://github.com/oleaha/waste_master#readme",
+  "dependencies": {
+    "bower": "^1.7.7"
+  }
+}
