@@ -1,5 +1,100 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Main</h1>
+    <div class="col-sm-12">
+        <h1 class="text-center">Your dashboard</h1>
+
+        <div class="col-sm-6">
+            <div class="some-chart" style="height: 300px"></div>
+        </div>
+        <div class="col-sm-6">
+            <div class="some-other-chart" style="height: 300px"></div>
+        </div>
+
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        new Chartist.Bar('.some-chart', {
+            labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+            series: [
+                [800000, 1200000, 1400000, 1300000],
+                [200000, 400000, 500000, 300000],
+                [100000, 200000, 400000, 600000]
+            ]
+        }, {
+            stackBars: true,
+            axisY: {
+                labelInterpolationFnc: function(value) {
+                    return (value / 1000) + 'k';
+                }
+            }
+        }).on('draw', function(data) {
+            if(data.type === 'bar') {
+                data.element.attr({
+                    style: 'stroke-width: 30px'
+                });
+            }
+        });
+
+
+        var data = {
+            labels: ['Bananas', 'Apples', 'Grapes'],
+            series: [20, 15, 40]
+        };
+
+        var options = {
+            labelInterpolationFnc: function(value) {
+                return value[0]
+            }
+        };
+
+        var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+                chartPadding: 30,
+                labelOffset: 100,
+                labelDirection: 'explode',
+                labelInterpolationFnc: function(value) {
+                    return value;
+                }
+            }],
+            ['screen and (min-width: 1024px)', {
+                labelOffset: 80,
+                chartPadding: 20
+            }]
+        ];
+
+        new Chartist.Pie('.some-other-chart', data, options, responsiveOptions);
+    </script>
+
 {% endblock %}

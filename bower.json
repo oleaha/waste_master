@@ -15,6 +15,8 @@
   ],
   "dependencies": {
     "jquery": "^2.2.0",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "chartist": "^0.9.7"
+
   }
 }

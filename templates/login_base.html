@@ -12,10 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ STATIC_URL }}libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ STATIC_URL }}libs/chartist/dist/chartist.min.css" rel="stylesheet">
-
     <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
-    <link href="{{ STATIC_URL }}css/menu.css" rel="stylesheet">
     <!-- Page specific styles -->
     {% block style %}
     {% endblock %}
@@ -37,42 +34,12 @@
 </head>
 <body>
 
-<div class="container-fluid">
-
-
-    <div id="wrapper" class="toggled">
-
-        {% include "menu.html" %}
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    {% block content %}
-
-                    {% endblock %}
-
-
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-</div>
+{% block content %}
+{% endblock %}
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ STATIC_URL }}libs/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="{{ STATIC_URL }}libs/chartist/dist/chartist.min.js"></script>
 
-<!-- Menu Script -->
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
 {% block script %}
 {% endblock %}
 
