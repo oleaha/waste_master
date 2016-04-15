@@ -16,7 +16,8 @@
   "dependencies": {
     "jquery": "^2.2.0",
     "bootstrap": "^3.3.6",
-    "chartist": "^0.9.7"
+    "chartist": "^0.9.7",
+    "font-awesome": "^4.6.1"
 
   }
 }
