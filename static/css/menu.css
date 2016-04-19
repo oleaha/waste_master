@@ -138,3 +138,9 @@
         margin-right: 0;
     }
 }
+
+@media(max-width: 991px) {
+    #page-content-wrapper {
+        padding: 0;
+    }
+}
