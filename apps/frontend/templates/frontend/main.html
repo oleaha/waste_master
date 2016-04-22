@@ -5,12 +5,68 @@
         <h1 class="text-center">Your dashboard</h1>
 
         <div class="col-sm-6">
-            <div class="some-chart" style="height: 300px"></div>
+            <div class="some-chart" style="height: 300px; background-color: #fff; font-size: 20px;"></div>
         </div>
         <div class="col-sm-6">
-            <div class="some-other-chart" style="height: 300px"></div>
+            <div class="some-other-chart" style="height: 300px; font-size: 20px;"></div>
         </div>
 
+        <div class="col-sm-12">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="col-sm-12">
             <table class="table table-bordered table-responsive">
                 <thead>
@@ -45,6 +101,7 @@
 {% block script %}
 
     <script>
+        /* Stolpe */
         new Chartist.Bar('.some-chart', {
             labels: ['Q1', 'Q2', 'Q3', 'Q4'],
             series: [
@@ -67,7 +124,7 @@
             }
         });
 
-
+        /* Pie */
         var data = {
             labels: ['Bananas', 'Apples', 'Grapes'],
             series: [20, 15, 40]

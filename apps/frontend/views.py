@@ -31,6 +31,12 @@ def login_view(request, *args, **kwargs):
 
 
 @require_GET
+@login_required
+def calculate_route_view(request, *args, **kwargs):
+    return render(request, "frontend/calculate_route.html")
+
+
+@require_GET
 def logout_view(request):
     logout(request)
     return redirect("login")

@@ -68,10 +68,17 @@
 
 <!-- Menu Script -->
 <script>
-    $("#menu-toggle").click(function(e) {
+    $('#menu-toggle, #menu-toggle-2').click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    $(window).scroll(function() {
+       if(!$("#wrapper").hasClass("toggled")) {
+           $("#wrapper").addClass("toggled")
+       }
+    });
+
 </script>
 {% block script %}
 {% endblock %}
