@@ -3,11 +3,62 @@
 {% block content %}
     <div class="col-sm-12">
         <h1 class="text-center">Calculate route</h1>
+
+        <!-- Left -->
+        <div class="col-xs-12 col-sm-6">
+            <h3>Select area:</h3>
+            <div id="startMap" class="map-fifty text-center"></div>
+        </div>
+
+
+        <!-- Right -->
+        <div class="col-xs-12 col-sm-6">
+            <h3>Generated route: </h3>
+            <div id="routeMap" class="map-fifty text-center"></div>
+            <button class="btn btn-default route-btn btn-block">Send to collectors</button>
+        </div>
     </div>
 
 {% endblock %}
 
 {% block script %}
 
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('startMap'), {
+                center: {lat: 18.466, lng: -66.118},
+                zoom: 9
+            });
+
+            // Define the LatLng coordinates for the polygon's path.
+            var triangleCoords = [
+                {lat: 25.774, lng: -80.190},
+                {lat: 18.466, lng: -66.118},
+                {lat: 32.321, lng: -64.757},
+                {lat: 25.774, lng: -80.190}
+            ];
+
+            // Define a rectangle and set its editable property to true.
+            var rectangle = new google.maps.Polygon({
+                paths: triangleCoords,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35,
+                editable: true
+            });
+            rectangle.setMap(map);
+
+
+            var routeMap = document.getElementById('routeMap');
+            var rMap = new google.maps.Map(routeMap, {
+                center: {lat: 44.540, lng: -78.546},
+                zoom: 8
+            });
+        }
+    </script>
 
 {% endblock %}
