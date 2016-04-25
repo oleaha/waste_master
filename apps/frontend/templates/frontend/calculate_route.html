@@ -5,17 +5,32 @@
         <h1 class="text-center">Calculate route</h1>
 
         <!-- Left -->
-        <div class="col-xs-12 col-sm-6">
-            <h3>Select area:</h3>
-            <div id="startMap" class="map-fifty text-center"></div>
+        <div class="col-xs-12 col-sm-6 select-route">
+            <div class="col-sm-12">
+                <h3>Select area:</h3>
+                <div id="startMap" class="map-fifty text-center"></div>
+
+                <div class="shait">
+                    <form method="POST" action="">
+                        <select class="form-control" name="team">
+                            <option value="0">Assign to team:</option>
+                            <option value="1">Team 1</option>
+                            <option value="2">Team 2</option>
+                        </select>
+                        <button class="btn btn-default route-btn btn-block">Generate route!</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
 
         <!-- Right -->
         <div class="col-xs-12 col-sm-6">
-            <h3>Generated route: </h3>
-            <div id="routeMap" class="map-fifty text-center"></div>
-            <button class="btn btn-default route-btn btn-block">Send to collectors</button>
+            <div class="col-sm-12">
+                <h3>Generated route: </h3>
+                <div id="routeMap" class="map-fifty text-center"></div>
+                <button class="btn btn-default route-btn btn-block">Send to collectors</button>
+            </div>
         </div>
     </div>
 

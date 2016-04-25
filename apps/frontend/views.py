@@ -37,6 +37,12 @@ def calculate_route_view(request, *args, **kwargs):
 
 
 @require_GET
+@login_required
+def request_rtl_view(request, *args, **kwargs):
+    return render(request, "frontend/request-rtl.html")
+
+
+@require_GET
 def logout_view(request):
     logout(request)
     return redirect("login")
