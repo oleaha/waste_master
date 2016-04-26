@@ -3,6 +3,7 @@ from django.views.decorators.http import require_http_methods, require_GET
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from apps.api.models import Container
 
 
 @require_http_methods(['GET', 'POST'])
@@ -30,10 +31,25 @@ def login_view(request, *args, **kwargs):
         return render(request, "frontend/login.html")
 
 
-@require_GET
+
 @login_required
+@require_http_methods(['GET', 'POST'])
 def calculate_route_view(request, *args, **kwargs):
-    return render(request, "frontend/calculate_route.html")
+
+    containers = Container.objects.all()
+
+    if request.method == 'POST':
+        team = request.POST['team']
+
+        return render(request, "frontend/calculate_route.html", {
+            'containers': containers,
+            'showGenerated': True,
+            'team': team,
+        })
+
+    return render(request, "frontend/calculate_route.html", {
+        'containers': containers
+    })
 
 
 @require_GET

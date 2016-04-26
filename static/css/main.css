@@ -42,13 +42,9 @@
 
 .map-fifty {
   width: 100%;
-  min-height: 300px;
+  min-height: 400px;
   max-height: 500px;
   margin-bottom: 1em;
-}
-
-.select-route {
-  border-right: 1px solid #d7d7d7;
 }
 
 #map-view-div .rtl-map {
