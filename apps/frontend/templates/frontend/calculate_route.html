@@ -41,7 +41,7 @@
 
 {% block script %}
 
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&callback=initMap" async defer></script>
 
     <script>
         function initMap() {
@@ -111,20 +111,29 @@
                 });
 
                 var waypts = [];
+                var point;
 
+                {% for container in containers %}
+                    var lat = parseFloat({{ container.latitude }});
+                    var lng = parseFloat({{ container.longitude }});
 
-                // Only waypoint
-                waypts.push({
-                    location: {lat: 63.419451, lng: 10.401011},
-                    stopover: true
-                });
+                    var curPosition = new google.maps.LatLng(lat, lng);
 
+                    if(google.maps.geometry.poly.containsLocation(curPosition, rectangle)) {
+                        console.log("test");
+                        waypts.push({
+                            location: {lat: {{ container.latitude }}, lng: {{ container.longitude }} },
+                            stopover: true
+                        });
+                    }
+
+                {% endfor %}
 
                 directionsDisplay.setMap(rMap);
 
                 directionsService.route({
-                    origin: {lat: 63.416397, lng: 10.407878},
-                    destination: {lat: 63.413566, lng: 10.408587},
+                    origin: {lat: 63.331382, lng: 10.344712},
+                    destination: {lat: 63.331382, lng: 10.344712},
                     waypoints: waypts,
                     optimizeWaypoints: true,
                     travelMode: google.maps.TravelMode.DRIVING
