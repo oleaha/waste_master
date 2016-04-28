@@ -22,7 +22,6 @@ SECRET_KEY = '_(o^+-3woi%sbkjy@6)+(r86p_14^+1^rqq7(4(2i3omhayu+n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -41,6 +40,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'apps.api',
     'apps.frontend',
+    'apps.mqtt',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,6 +71,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
         ],
+        'DEBUG': True,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,4 +125,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
