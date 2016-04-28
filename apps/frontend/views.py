@@ -3,7 +3,7 @@ from django.views.decorators.http import require_http_methods, require_GET
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from apps.api.models import Container
+from apps.api.models import Container, ContainerReading
 
 
 @require_http_methods(['GET', 'POST'])
@@ -55,7 +55,15 @@ def calculate_route_view(request, *args, **kwargs):
 @require_GET
 @login_required
 def request_rtl_view(request, *args, **kwargs):
-    return render(request, "frontend/request-rtl.html")
+
+    info = dict()
+    containers = Container.objects.all()
+
+    for container in containers:
+        last_reading = ContainerReading.objects.filter(id=container.id).order_by('datetime')
+        info[container.id] = {'container': container, 'last_reading': last_reading}
+
+    return render(request, "frontend/request-rtl.html", info)
 
 
 @require_GET

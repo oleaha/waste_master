@@ -38,6 +38,12 @@
 
 .ct-label {
   font-size: 0.65em;
+  color: #000000;
+}
+
+.ct-chart-pie .ct-label {
+  color: #ffffff;
+  fill: #ffffff;
 }
 
 .map-fifty {

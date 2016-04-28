@@ -126,7 +126,7 @@
 
         /* Pie */
         var data = {
-            labels: ['Bananas', 'Apples', 'Grapes'],
+            labels: ['MSW', 'Paper', 'Food'],
             series: [20, 15, 40]
         };
 
@@ -138,16 +138,17 @@
 
         var responsiveOptions = [
             ['screen and (min-width: 640px)', {
-                chartPadding: 30,
-                labelOffset: 100,
+                chartPadding: 20,
+                labelOffset: 10,
+                labelColor: '#fff',
                 labelDirection: 'explode',
                 labelInterpolationFnc: function(value) {
                     return value;
                 }
             }],
             ['screen and (min-width: 1024px)', {
-                labelOffset: 80,
-                chartPadding: 20
+                labelOffset: 10,
+                chartPadding: 10
             }]
         ];
 
