@@ -60,10 +60,9 @@ def request_rtl_view(request, *args, **kwargs):
     containers = Container.objects.all()
 
     for container in containers:
-        last_reading = ContainerReading.objects.filter(id=container.id).order_by('datetime')
-        info[container.id] = {'container': container, 'last_reading': last_reading}
+        container.last_reading = ContainerReading.objects.filter(container=container).last()
 
-    return render(request, "frontend/request-rtl.html", info)
+    return render(request, "frontend/request-rtl.html", {'containers': containers})
 
 
 @require_GET

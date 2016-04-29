@@ -1,4 +1,5 @@
 import paho.mqtt.client as mqtt
+from apps.api.models import ContainerReading, Container
 
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -13,6 +14,9 @@ def on_connect(client, userdata, flags, rc):
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
 
+    ny = ContainerReading.objects.create(container=Container.objects.get(id=1), value=msg.payload)
+    ny.save()
+
     # Data is received here and can be stored in the database
     print(msg.topic + " " + str(msg.payload))
 
@@ -21,7 +25,7 @@ def request_depth(client):
 
     test = {'container': 14, "what": "workwork"}
 
-    print client.publish("ewms/request/container/14", payload="heihei")
+    print client.publish("ewms/container/request/1", payload="")
 
 
 def try_connect():
@@ -31,7 +35,7 @@ def try_connect():
 
     client.connect("mqtt.item.ntnu.no", 1883, 60)
 
-    client.subscribe("ewms/#")
+    client.subscribe("ewms/container/1")
 
     counter = 1
 
