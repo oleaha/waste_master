@@ -20,7 +20,7 @@
                 <tr>
                     <th>Name</th>
                     <th class="hidden-xs">Location</th>
-                    <th>Last reading</th>
+                    <th class="hidden-xs">Last reading</th>
                     <th>Request</th>
                 </tr>
                 </thead>
@@ -28,7 +28,7 @@
                 <tr>
                     <th>Name</th>
                     <th class="hidden-xs">Location</th>
-                    <th>Last reading</th>
+                    <th class="hidden-xs">Last reading</th>
                     <th>Request</th>
                 </tr>
                 </tfoot>
@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{ container.name }}</td>
                         <td class="hidden-xs">{{ container.longitude }}, {{ container.latitude }}</td>
-                        <td>{{ container.last_reading.datetime }}</td>
+                        <td class="hidden-xs">{{ container.last_reading.datetime }}</td>
                         <td class="text-center"><button type="submit" data-target="#myModal" data-toggle="modal" name="{{ container.id }}" class="btn btn-danger btn-sm">Request</button></td>
                     </tr>
                 {% endfor %}
