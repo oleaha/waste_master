@@ -6,13 +6,7 @@
 
 {% block content %}
     <div class="col-sm-12">
-        <h1 class="text-center">Request real time load</h1>
-        <div class="col-sm-12 text-center">
-            <div class="btn-group " role="group" aria-label="...">
-                <button id="list-view" type="button" class="btn btn-default disabled">List view</button>
-                <button id="map-view" type="button" class="btn btn-default">Map view</button>
-            </div>
-        </div>
+        <h1 class="text-center">Container Usage</h1>
 
         <div id="list-view-div" class="col-sm-12" style="margin-top: 1em;">
             <table id="list-view-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -21,7 +15,8 @@
                     <th>Name</th>
                     <th class="hidden-xs">Location</th>
                     <th class="hidden-xs">Last reading</th>
-                    <th>Request</th>
+                    <th class="hidden-xs">Fill grade</th>
+                    <th class="hidden-xs">Last emptied</th>
                 </tr>
                 </thead>
                 <tfoot>
@@ -29,7 +24,8 @@
                     <th>Name</th>
                     <th class="hidden-xs">Location</th>
                     <th class="hidden-xs">Last reading</th>
-                    <th>Request</th>
+                    <th class="hidden-xs">Fill grade</th>
+                    <th class="hidden-xs">Last emptied</th>
                 </tr>
                 </tfoot>
                 <tbody>
@@ -37,38 +33,21 @@
                 {% for container in containers %}
                     <tr>
                         <td>{{ container.name }}</td>
-                        <td class="hidden-xs">{{ container.longitude }}, {{ container.latitude }}</td>
-                        <td class="hidden-xs">{{ container.last_reading.datetime }}</td>
-                        <td class="text-center"><button type="submit" name="{{ container.id }}" class="btn btn-danger btn-sm request-rtl">Request</button></td>
+                        <td class="hidden-xs">{{ container.location }}</td>
+                        <td class="hidden-xs">{{ container.last_reading }}</td>
+                        <td class="hidden-xs">
+                            <div class="progress">
+
+                                <div class="progress-bar progress-bar-{{ container.fill_level }} progress-bar-striped" role="progressbar" aria-valuenow="{{ container.fill_grade }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ container.fill_grade }}%">
+                                    <span class="sr-only">{{ container.fill_grade }}%</span>{{ container.fill_grade }}%
+                                </div>
+                            </div>
+                        </td>
+                        <td class="hidden-xs">{{ container.last_empty }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-
-            <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">RTL for Sintef</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>The fill level is: <span class="req-rtl"></span></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-        </div>
-
-        <div id="map-view-div" class="col-sm-12 hidden">
-            <div id="map" class="rtl-map text-center"></div>
-
-
-
         </div>
 
     </div>
@@ -86,7 +65,7 @@
 
         $(element).click(function(event){
 
-             if(counter == 0) {
+            if(counter == 0) {
                 $('.req-rtl').text('1%');
                 counter++;
             } else if(counter == 1) {

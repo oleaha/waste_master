@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from apps.frontend.views import login_view, profile_view, logout_view, calculate_route_view, request_rtl_view
+from apps.frontend.views import login_view, profile_view, logout_view, calculate_route_view, request_rtl_view, \
+    usage_view
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^calculate-route', calculate_route_view, name='calculate-route'),
 
     url(r'^request-rtl', request_rtl_view , name='request-rtl'),
-    url(r'^container-usage', calculate_route_view, name='container-usage'),
+    url(r'^container-usage', usage_view, name='container-usage'),
     url(r'^statistics', calculate_route_view, name='statistics'),
 
     url(r'^admin/', include(admin.site.urls)),

@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from apps.api.models import Container, ContainerReading
+from random import randint
+import random
+from datetime import date
 
 
 @require_http_methods(['GET', 'POST'])
@@ -74,3 +77,42 @@ def logout_view(request):
 @login_required
 def profile_view(request):
     return render(request, "frontend/main.html")
+
+
+@login_required
+def usage_view(request):
+
+    containers = []
+
+    for i in range(0, 500):
+        fill = randint(1, 100)
+        cities = ['Tunga', 'Gloshaugen', 'Sentrum', 'Ila', 'Moholt', 'Melhus', 'Solsiden', 'Nardo', 'Tiller']
+        rand_city = cities[randint(0, 8)]
+
+        if fill >80 :
+            level = 'danger'
+        elif fill > 60:
+            level = 'warning'
+        elif fill > 40:
+            level = 'info'
+        else:
+            level = 'success'
+
+        start_date = date.today().replace(day=1, month=4).toordinal()
+        end_date = date.today().toordinal()
+        random_day = date.fromordinal(random.randint(start_date, end_date))
+
+        random_empty = date.fromordinal(random.randint(start_date, end_date))
+
+        containers.append(
+            {
+                'name': 'Test ' + str(i),
+                'location': rand_city,
+                'last_reading': random_day,
+                'fill_grade': fill,
+                'fill_level': level,
+                'last_empty': random_empty,
+            }
+        )
+
+    return render(request, 'frontend/usage.html', {'containers': containers})
