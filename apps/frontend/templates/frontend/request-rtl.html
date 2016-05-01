@@ -39,21 +39,21 @@
                         <td>{{ container.name }}</td>
                         <td class="hidden-xs">{{ container.longitude }}, {{ container.latitude }}</td>
                         <td class="hidden-xs">{{ container.last_reading.datetime }}</td>
-                        <td class="text-center"><button type="submit" data-target="#myModal" data-toggle="modal" name="{{ container.id }}" class="btn btn-danger btn-sm">Request</button></td>
+                        <td class="text-center"><button type="submit" name="{{ container.id }}" class="btn btn-danger btn-sm request-rtl">Request</button></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
 
             <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-                <div class="modal-dialog" style="margin-top: 40%;">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title">RTL for Sintef</h4>
                         </div>
                         <div class="modal-body">
-                            <p>The fill level is: 82%</p>
+                            <p>The fill level is: <span class="req-rtl"></span></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -79,6 +79,32 @@
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+
+    <script>
+        var counter = 0;
+        var element = '.request-rtl';
+
+        $(element).click(function(event){
+
+             if(counter == 0) {
+                $('.req-rtl').text('1%');
+                counter++;
+            } else if(counter == 1) {
+                $('.req-rtl').text('55%');
+                counter = 0;
+            }
+
+
+            var now = new Date().getTime();
+            while(new Date().getTime() < now + 900){ /* do nothing */ }
+
+            $('#myModal').modal('show');
+
+
+        });
+
+
+    </script>
 
     <script>
         function initMap() {
