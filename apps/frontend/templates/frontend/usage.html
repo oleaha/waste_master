@@ -50,14 +50,14 @@
             </table>
 
             <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title">Usage history for container</h4>
                         </div>
-                        <div class="modal-body">
-                            <div class="some-chart" style="height: 300px; width: 90%; margin-top: 10px; background-color: #fff; font-size: 20px;"></div>
+                        <div class="modal-body text-center">
+                            <div class="some-chart" style="height: 400px; padding-top: 20px; background-color: #fff; font-size: 13px;"></div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -108,9 +108,9 @@
 
 
         var chart = new Chartist.Line('.some-chart', {
-            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
             series: [
-                [62, 79, 83, 0, 34, 88, 99, 99, 0, 21, 68, 82, 84, 86, 92, 99],
+                [62, 79, 83, 0, 34, 88, 99, 99, 0, 21, 68, 82, 84, 86, 92, 99, 0, 88, 89, 99, 99, 99, 99, 99, 12, 68],
             ]
         }, {
             fullWidth: true,
