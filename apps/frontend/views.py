@@ -83,13 +83,15 @@ def profile_view(request):
 def usage_view(request):
 
     containers = []
+    cities = ['Tunga', 'Gloshaugen', 'Sentrum', 'Ila', 'Moholt', 'Melhus', 'Solsiden', 'Nardo', 'Tiller']
 
     for i in range(0, 500):
+        # What fill grade should the containers have?
         fill = randint(1, 100)
-        cities = ['Tunga', 'Gloshaugen', 'Sentrum', 'Ila', 'Moholt', 'Melhus', 'Solsiden', 'Nardo', 'Tiller']
+        # Pick a random place in trondheim
         rand_city = cities[randint(0, 8)]
 
-        if fill >80 :
+        if fill > 80:
             level = 'danger'
         elif fill > 60:
             level = 'warning'
@@ -98,10 +100,10 @@ def usage_view(request):
         else:
             level = 'success'
 
+        # Create random data for datatable
         start_date = date.today().replace(day=1, month=4).toordinal()
         end_date = date.today().toordinal()
         random_day = date.fromordinal(random.randint(start_date, end_date))
-
         random_empty = date.fromordinal(random.randint(start_date, end_date))
 
         containers.append(
